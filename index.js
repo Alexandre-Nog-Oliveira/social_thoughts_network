@@ -6,6 +6,7 @@ const flash = require('express-flash')
 const conn = require('./db/conn')
 
 const toughtsRoutes = require('./routes/toughtsRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 const Tought = require('./models/Tought')
 const User = require('./models/User')
@@ -55,6 +56,7 @@ app.use((req, res, next ) =>{
 })
 
 app.use('/toughts', toughtsRoutes)
+app.use('/', authRoutes)
 
 app.get('/', ToughtsController.showToughts)
 
